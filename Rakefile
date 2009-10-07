@@ -5,9 +5,9 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rat"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "koops@editcx.com"
+    gem.summary = %Q{Ruby interface to Unix "at" command.}
+    gem.description = %Q{Ruby interface to Unix "at" command.  (Not compatible with Windows\' "at".)}
+    gem.email = "koops@simchi.com"
     gem.homepage = "http://github.com/koops/rat"
     gem.authors = ["Ryan Koopmans"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
