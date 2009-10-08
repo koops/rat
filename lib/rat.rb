@@ -1,4 +1,4 @@
-class Date
+class Date # :nodoc:
   def to_system_time
     to_time(new_offset, :local)
   end
@@ -10,6 +10,7 @@ class Date
 end
 
 module Rat
+  # Schedule a new at job.  Time is local time.  Pass :no_mail => true in options to supress email for jobs with output.
   def self.add(command, time, opts = {})
     cmd = command.dup
     cmd << ' 2>&1 > /dev/null' if opts[:no_mail]
@@ -18,15 +19,19 @@ module Rat
     (output[/job (\d+)/i, 1] || -1).to_i
   end
 
+  # Pass an integer id returned from add or list.
   def self.remove(job)
     `at -r #{job}`
     $?.exitstatus == 0
   end
 
+  # Dumps the entire job, with environment.  Handy for debugging failed jobs.
   def self.show(job)
     `at -c #{job}`
   end
 
+  # Gives all the pending at jobs for the current user.
+  # [{:job => int, :time => time}, ...]
   def self.list
     output = `at -l`
     raise RuntimeError, "Rat couldn't list jobs." unless $?.exitstatus == 0

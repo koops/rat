@@ -16,4 +16,9 @@ class RatTest < Test::Unit::TestCase
       Rat.remove(job)
     end
   end
+
+  def test_inner_quotes
+    assert_nothing_raised{ Rat.add('echo "ratty"', Time.now + 100, :no_mail => true) }
+    assert_nothing_raised{ Rat.add("echo 'ratty'", Time.now + 100, :no_mail => true) }
+  end
 end

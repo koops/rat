@@ -2,9 +2,27 @@
 
 Ruby interface to Unix "at" command.
 
-= MacOS X
+== Installation
 
-Note that, by default, "at" is disabled on Macs.  See "man atrun" for the command to enable it.
+  $ gem sources -a http://gems.github.com  # you only need to run this once
+  $ sudo gem install koops-rat
+
+== Usage
+
+  $ require 'rat'
+  $ job = Rat.add('touch at-at', Time.now + 30)
+  $ # => <integer id>
+  $ # Thirty seconds later, the touch command runs.
+  $ Rat.list
+  $ # => [{:job => <integer id>, :time => Thu Oct 08 09:08:51 -0700 2009}, ...]
+  $ Rat.delete(job) # if you change your mind about running the command.
+
+== Notes
+"At" stores your environment, including your working directory, so you don't need full pathnames to executables, etc. like you do in cron (though it doesn't hurt).
+
+== MacOS X
+
+Note that, by default, "at" is disabled on MacOS X.  See "man atrun" for the command to enable it.
 
 == Copyright
 
