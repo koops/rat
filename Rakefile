@@ -7,7 +7,7 @@ begin
     gem.name = "rat"
     gem.summary = %Q{Ruby interface to Unix "at" command.}
     gem.description = %Q{Ruby interface to Unix "at" command.  (Not compatible with Windows\' "at".)}
-    gem.email = "koops@simchi.com"
+    gem.email = "koops@editcx.com"
     gem.homepage = "http://github.com/koops/rat"
     gem.authors = ["Ryan Koopmans"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
