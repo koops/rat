@@ -14,7 +14,7 @@ module Rat
   def self.add(command, time, opts = {})
     cmd = command.dup
     cmd << ' 2>&1 > /dev/null' if opts[:no_mail]
-    output = `echo "#{cmd}" | at -t #{time.strftime('%y%m%d%H%M.%S')} 2>&1`
+    output = `echo "#{cmd}" | at #{time.strftime('%H:%M')} #{time.strftime('%d.%m.%y')} 2>&1`
     raise RuntimeError, "Rat couldn't schedule job." unless $?.exitstatus == 0
     (output[/job (\d+)/i, 1] || -1).to_i
   end
