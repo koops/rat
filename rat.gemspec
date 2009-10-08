@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Ryan Koopmans"]
   s.date = %q{2009-10-08}
   s.description = %q{Ruby interface to Unix "at" command.  (Not compatible with Windows' "at".)}
-  s.email = %q{koops@simchi.com}
+  s.email = %q{koops@editcx.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rat.rb",
+     "rat.gemspec",
      "test/rat_test.rb",
      "test/test_helper.rb"
   ]
