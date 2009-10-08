@@ -4,8 +4,8 @@ Ruby interface to Unix "at" command.
 
 == Installation
 
-  $ gem sources -a http://gems.github.com  # you only need to run this once
-  $ sudo gem install koops-rat
+  $ gem sources -a http://gemcutter.org
+  $ sudo gem install rat
 
 == Usage
 
