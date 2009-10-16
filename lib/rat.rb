@@ -9,12 +9,22 @@ class Date # :nodoc:
   end
 end
 
+class Time # :nodoc:
+  def round_up_to_nearest_minute
+    Time.at(self.to_i + (60 - sec) % 60)
+  end
+end
+
 module Rat
   # Schedule a new at job.  Time is local time.  Pass :no_mail => true in options to supress email for jobs with output.
+  # Pass :round_seconds_up if you never want jobs running early ("at: has a resolution of one minute at best and will round down by default).
+
   def self.add(command, time, opts = {})
     cmd = command.dup
     cmd << ' 2>&1 > /dev/null' if opts[:no_mail]
-    output = `echo "#{cmd}" | at #{time.strftime('%H:%M')} #{time.strftime('%d.%m.%y')} 2>&1`
+    jobtime = opts[:round_seconds_up] ? time.round_up_to_nearest_minute : time
+
+    output = `echo "#{cmd}" | at #{jobtime.strftime('%H:%M')} #{jobtime.strftime('%d.%m.%y')} 2>&1`
     raise RuntimeError, "Rat couldn't schedule job." unless $?.exitstatus == 0
     (output[/job (\d+)/i, 1] || -1).to_i
   end
