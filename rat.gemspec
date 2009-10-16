@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rat}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan Koopmans"]
-  s.date = %q{2009-10-08}
+  s.date = %q{2009-10-16}
   s.description = %q{Ruby interface to Unix "at" command.  (Not compatible with Windows' "at".)}
   s.email = %q{koops@editcx.com}
   s.extra_rdoc_files = [
